@@ -22,7 +22,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # اپلیکیشن‌های خودت مثل pages رو اینجا اضافه کن
+    'accounts' , 
+    'pages' , 
+
 ]
 
 # میان‌افزارها
@@ -42,7 +44,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / "templates"],  # پوشه templates
+        'DIRS': [str(BASE_DIR.joinpath ('templates')) ],  # پوشه templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -83,14 +85,14 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# فایل‌های استاتیک
-STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'   # برای collectstatic در production
-STATICFILES_DIRS = [BASE_DIR / "static"] # برای فایل‌های استاتیک در حالت توسعه
-
-# فایل‌های مدیا
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+STATIC_URL = 'static/'
 
 # کلید پیش‌فرض
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+AUTH_USER_MODEL = 'accounts.CustomUser'
+
+
+LOGIN_REDIRECT_URL='home'
+LOGOUT_REDIRECT_URL='home'

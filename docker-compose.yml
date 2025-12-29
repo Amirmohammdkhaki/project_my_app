@@ -1,6 +1,18 @@
 version: '3.9'
 
 services:
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgres://myuser:mypassword@db:5432/mydb
+
   db:
     image: postgres:14
     environment:
@@ -9,18 +21,6 @@ services:
       POSTGRES_PASSWORD: mypassword
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
-
-  web:
-    build: .
-    command: python manage.py runserver 0.0.0.0:8000
-    volumes:
-      - .:/code   # مطابقت با WORKDIR در Dockerfile
-    ports:
-      - "8000:8000"
-    depends_on:
-      - db
 
 volumes:
   postgres_data:
