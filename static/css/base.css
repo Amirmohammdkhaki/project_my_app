@@ -1,0 +1,36 @@
+/* پشت‌زمینه کل صفحه */
+body {
+    background: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* نوبار خوشگل با گرادیان */
+.custom-navbar {
+    background: linear-gradient(90deg, #667eea, #764ba2); /* آبی-بنفش مدرن */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.navbar-brand, .nav-link {
+    color: #fff !important;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: #ffe0ec !important;
+}
+
+.btn {
+    font-weight: 500;
+}
+
+/* بخش نام کاربر */
+.user-info {
+    font-size: 16px;
+    font-weight: 500;
+}
+.user-info i {
+    margin-right: 5px;
+}
